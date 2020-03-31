@@ -1,0 +1,378 @@
+{
+  "id": "5e8164adc1dd5d0017898b9c",
+  "title": "Reduxを整理するよ",
+  "image": null,
+  "descriptions": [
+    "参考：https://qiita.com/kitagawamac/items/b001839150ab04a6a427",
+    "## モチベーション",
+    "3つの原則がある",
+    "Single source of truth ソースは1つ",
+    "State is read-only stateは読み取り専用"
+  ],
+  "user": {
+    "id": "5e0dc5d2f959fc0017db4344",
+    "name": "sinc",
+    "displayName": "slncu",
+    "photo": "https://lh3.googleusercontent.com/a-/AAuE7mAHy2j_dXNTCywy-nF7yi_qmx_LsSVclQpMkHJd1w"
+  },
+  "pin": 0,
+  "views": 6,
+  "linked": 0,
+  "commitId": "5e81b18a4d4b1b0017168168",
+  "created": 1585538223,
+  "updated": 1585557898,
+  "accessed": 1585652392,
+  "snapshotCreated": 1585540225,
+  "persistent": true,
+  "lines": [
+    {
+      "id": "5e8164adc1dd5d0017898b9c",
+      "text": "Reduxを整理するよ",
+      "userId": "5e0dc5d2f959fc0017db4344",
+      "created": 1585538223,
+      "updated": 1585554957
+    },
+    {
+      "id": "5e81b185db434400007796d9",
+      "text": "参考：https://qiita.com/kitagawamac/items/b001839150ab04a6a427",
+      "userId": "5e0dc5d2f959fc0017db4344",
+      "created": 1585557894,
+      "updated": 1585557898
+    },
+    {
+      "id": "5e81b185db434400007796da",
+      "text": "",
+      "userId": "5e0dc5d2f959fc0017db4344",
+      "created": 1585557894,
+      "updated": 1585557894
+    },
+    {
+      "id": "5e81a60ddb434400007796a9",
+      "text": "## モチベーション",
+      "userId": "5e0dc5d2f959fc0017db4344",
+      "created": 1585554958,
+      "updated": 1585557893
+    },
+    {
+      "id": "5e81b17ddb434400007796d8",
+      "text": "\t3つの原則がある",
+      "userId": "5e0dc5d2f959fc0017db4344",
+      "created": 1585557886,
+      "updated": 1585557886
+    },
+    {
+      "id": "5e81b004db434400007796c3",
+      "text": "\t\tSingle source of truth ソースは1つ",
+      "userId": "5e0dc5d2f959fc0017db4344",
+      "created": 1585557508,
+      "updated": 1585557519
+    },
+    {
+      "id": "5e81b00edb434400007796c4",
+      "text": "\t\tState is read-only stateは読み取り専用",
+      "userId": "5e0dc5d2f959fc0017db4344",
+      "created": 1585557519,
+      "updated": 1585557536
+    },
+    {
+      "id": "5e81b020db434400007796c6",
+      "text": "\t\tChanges are made with pure functions 変更は純関数で行われる",
+      "userId": "5e0dc5d2f959fc0017db4344",
+      "created": 1585557536,
+      "updated": 1585557558
+    },
+    {
+      "id": "5e81b036db434400007796c7",
+      "text": "\t\t\t純粋な関数ではない=副作用のある関数",
+      "userId": "5e0dc5d2f959fc0017db4344",
+      "created": 1585557558,
+      "updated": 1585557567
+    },
+    {
+      "id": "5e81b03edb434400007796c8",
+      "text": "\t\t\t\thttps://qiita.com/suzuki-hoge/items/bad43630ad1ad723ca4a",
+      "userId": "5e0dc5d2f959fc0017db4344",
+      "created": 1585557567,
+      "updated": 1585557584
+    },
+    {
+      "id": "5e81a615db434400007796aa",
+      "text": "\tfluxを参考にしている",
+      "userId": "5e0dc5d2f959fc0017db4344",
+      "created": 1585554965,
+      "updated": 1585554974
+    },
+    {
+      "id": "5e81b055db434400007796ca",
+      "text": "\t\tviewの変更を受けて、",
+      "userId": "5e0dc5d2f959fc0017db4344",
+      "created": 1585557589,
+      "updated": 1585557594
+    },
+    {
+      "id": "5e81b05adb434400007796cb",
+      "text": "\t\tactionが発行され、",
+      "userId": "5e0dc5d2f959fc0017db4344",
+      "created": 1585557594,
+      "updated": 1585557603
+    },
+    {
+      "id": "5e81b063db434400007796cc",
+      "text": "\t\tstoreが更新される",
+      "userId": "5e0dc5d2f959fc0017db4344",
+      "created": 1585557603,
+      "updated": 1585557607
+    },
+    {
+      "id": "5e81b067db434400007796cd",
+      "text": "\t\t\t(reactの話)storeが更新されると、それをpropsの変更としてviewに反映する(componentの再render)",
+      "userId": "5e0dc5d2f959fc0017db4344",
+      "created": 1585557607,
+      "updated": 1585557648
+    },
+    {
+      "id": "5e81a61edb434400007796ab",
+      "text": "",
+      "userId": "5e0dc5d2f959fc0017db4344",
+      "created": 1585554974,
+      "updated": 1585554975
+    },
+    {
+      "id": "5e81a61fdb434400007796ad",
+      "text": "## Action",
+      "userId": "5e0dc5d2f959fc0017db4344",
+      "created": 1585554975,
+      "updated": 1585554989
+    },
+    {
+      "id": "5e81a62edb434400007796ae",
+      "text": "\t何をするかを明示的にするもの",
+      "userId": "5e0dc5d2f959fc0017db4344",
+      "created": 1585554991,
+      "updated": 1585555233
+    },
+    {
+      "id": "5e81a721db434400007796af",
+      "text": "\t\t基本的にObject",
+      "userId": "5e0dc5d2f959fc0017db4344",
+      "created": 1585555233,
+      "updated": 1585555254
+    },
+    {
+      "id": "5e81a736db434400007796b0",
+      "text": "\t\t\ttype, payloadで構成される",
+      "userId": "5e0dc5d2f959fc0017db4344",
+      "created": 1585555255,
+      "updated": 1585557670
+    },
+    {
+      "id": "5e81a73edb434400007796b1",
+      "text": "",
+      "userId": "5e0dc5d2f959fc0017db4344",
+      "created": 1585555263,
+      "updated": 1585555492
+    },
+    {
+      "id": "5e81a824db434400007796b2",
+      "text": "## Action Creator",
+      "userId": "5e0dc5d2f959fc0017db4344",
+      "created": 1585555492,
+      "updated": 1585555498
+    },
+    {
+      "id": "5e81a82bdb434400007796b3",
+      "text": "\tアクションを作るための関数",
+      "userId": "5e0dc5d2f959fc0017db4344",
+      "created": 1585555499,
+      "updated": 1585555512
+    },
+    {
+      "id": "5e81a8d9db434400007796b4",
+      "text": "\t\t(luidaの場合)だいたいはサーバとのリクエストが発生する",
+      "userId": "5e0dc5d2f959fc0017db4344",
+      "created": 1585555675,
+      "updated": 1585557686
+    },
+    {
+      "id": "5e81a8eadb434400007796b5",
+      "text": "\t\t最終的にはアクションをdispatchしてあげる",
+      "userId": "5e0dc5d2f959fc0017db4344",
+      "created": 1585555692,
+      "updated": 1585555705
+    },
+    {
+      "id": "5e81a8f9db434400007796b6",
+      "text": "\t\t\tdispatchするとreducerがアクションを受けってくれる",
+      "userId": "5e0dc5d2f959fc0017db4344",
+      "created": 1585555705,
+      "updated": 1585557694
+    },
+    {
+      "id": "5e81a901db434400007796b7",
+      "text": "\t\t\t\tstoreに反映される",
+      "userId": "5e0dc5d2f959fc0017db4344",
+      "created": 1585555713,
+      "updated": 1585555719
+    },
+    {
+      "id": "5e81a908db434400007796b8",
+      "text": "",
+      "userId": "5e0dc5d2f959fc0017db4344",
+      "created": 1585555721,
+      "updated": 1585555722
+    },
+    {
+      "id": "5e816c81db434400007796a6",
+      "text": "## Reducer",
+      "userId": "5e0dc5d2f959fc0017db4344",
+      "created": 1585540225,
+      "updated": 1585556097
+    },
+    {
+      "id": "5e81aa82db434400007796ba",
+      "text": "\treducerは、actionを受けてstateを変更するの為のメソッドです",
+      "userId": "5e0dc5d2f959fc0017db4344",
+      "created": 1585556098,
+      "updated": 1585556110
+    },
+    {
+      "id": "5e81aa8fdb434400007796bb",
+      "text": "\t\t(previosState, type) => newState",
+      "userId": "5e0dc5d2f959fc0017db4344",
+      "created": 1585556111,
+      "updated": 1585556122
+    },
+    {
+      "id": "5e81ac53db434400007796c2",
+      "text": "\t\t(reactの話)stateが更新されると、viewに変更される",
+      "userId": "5e0dc5d2f959fc0017db4344",
+      "created": 1585556564,
+      "updated": 1585556583
+    },
+    {
+      "id": "5e81aa9bdb434400007796bc",
+      "text": "",
+      "userId": "5e0dc5d2f959fc0017db4344",
+      "created": 1585556124,
+      "updated": 1585556125
+    },
+    {
+      "id": "5e81aa9edb434400007796bd",
+      "text": "## store",
+      "userId": "5e0dc5d2f959fc0017db4344",
+      "created": 1585556133,
+      "updated": 1585556371
+    },
+    {
+      "id": "5e81ab93db434400007796be",
+      "text": "\tアプリケーション全体の状態",
+      "userId": "5e0dc5d2f959fc0017db4344",
+      "created": 1585556371,
+      "updated": 1585556380
+    },
+    {
+      "id": "5e81ab9bdb434400007796bf",
+      "text": "\t\tstate…アプリケーションの状態そのもの",
+      "userId": "5e0dc5d2f959fc0017db4344",
+      "created": 1585556380,
+      "updated": 1585556524
+    },
+    {
+      "id": "5e81aba2db434400007796c0",
+      "text": "\t\tdispatch(関数)…storeにアクションとペイロードを反映させるための関数",
+      "userId": "5e0dc5d2f959fc0017db4344",
+      "created": 1585556386,
+      "updated": 1585556513
+    },
+    {
+      "id": "5e81abaedb434400007796c1",
+      "text": "\t\tgetState(関数)…アプリケーション全体のstateにアクセスするための関数",
+      "userId": "5e0dc5d2f959fc0017db4344",
+      "created": 1585556398,
+      "updated": 1585556498
+    },
+    {
+      "id": "5e81b0fedb434400007796d0",
+      "text": "",
+      "userId": "5e0dc5d2f959fc0017db4344",
+      "created": 1585557759,
+      "updated": 1585557759
+    },
+    {
+      "id": "5e81b0fedb434400007796d2",
+      "text": "## react-reduxについて",
+      "userId": "5e0dc5d2f959fc0017db4344",
+      "created": 1585557759,
+      "updated": 1585557774
+    },
+    {
+      "id": "5e81b10ddb434400007796d3",
+      "text": "\treduxとreactをつなげてくれるライブラリ",
+      "userId": "5e0dc5d2f959fc0017db4344",
+      "created": 1585557774,
+      "updated": 1585557785
+    },
+    {
+      "id": "5e81b118db434400007796d4",
+      "text": "\t\t10割使う関数はconnect",
+      "userId": "5e0dc5d2f959fc0017db4344",
+      "created": 1585557785,
+      "updated": 1585557796
+    },
+    {
+      "id": "5e81b124db434400007796d5",
+      "text": "\t\t`connect(reduxのstate, reduxのacition)(繋げたいreact component)` という形でreactからreduxのstoreにアクセスできる",
+      "userId": "5e0dc5d2f959fc0017db4344",
+      "created": 1585557797,
+      "updated": 1585557837
+    },
+    {
+      "id": "5e81aa7ddb434400007796b9",
+      "text": "",
+      "userId": "5e0dc5d2f959fc0017db4344",
+      "created": 1585556094,
+      "updated": 1585556094
+    }
+  ],
+  "links": ["#"],
+  "icons": {},
+  "relatedPages": {
+    "links1hop": [],
+    "links2hop": [
+      {
+        "id": "5e1038669caa06001749793f",
+        "title": "インフラ(AWS)関連用語まとめ",
+        "titleLc": "インフラ(aws)関連用語まとめ",
+        "image": null,
+        "descriptions": [
+          "## VPC",
+          "AWS Virtual Private Cloud -> 仮想ネットワーク",
+          "## CIDR",
+          "Classless Inter-Domain Routing",
+          "クラスを切らない経路情報の集成をおこなう技術"
+        ],
+        "linksLc": ["#"],
+        "updated": 1578381306,
+        "accessed": 1584942792
+      },
+      {
+        "id": "5e735e8fe59c3f0017742947",
+        "title": "ReactNativeを試してみた",
+        "titleLc": "reactnativeを試してみた",
+        "image": "https://i.ytimg.com/vi/qSRrxpdMpVc/mqdefault.jpg",
+        "descriptions": [
+          "## install",
+          "公式サイトから",
+          "https://reactnative.dev/docs/getting-started",
+          "expoでDLした",
+          "AwesomeProject を init した"
+        ],
+        "linksLc": ["#"],
+        "updated": 1584942966,
+        "accessed": 1585567366
+      }
+    ],
+    "icons1hop": []
+  },
+  "collaborators": []
+}
