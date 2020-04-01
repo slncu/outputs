@@ -22,16 +22,11 @@ const Home = () => {
 
       <main>
         {testPages.pages.map(page => {
-          const date = unixToLocaleDateString(page.created);
-
           return (
             <div key={page.id}>
               <Link
-                href={`/posts/${encodeURIComponent(
-                  date.y
-                )}/${encodeURIComponent(date.m)}/${encodeURIComponent(
-                  date.d
-                )}/${encodeURIComponent(page.title)}`}
+                href="/posts/[pid]"
+                as={`/posts/${encodeURIComponent(page.title)}`}
               >
                 <a>
                   <h2>{page.title}</h2>
