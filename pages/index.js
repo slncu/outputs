@@ -1,34 +1,26 @@
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import Link from "next/link";
-import testPages from "../data/test-pages.json";
-import { unixToLocaleDateString } from "../helpers/date";
+import fetch from "isomorphic-unfetch";
+import dayjs from "dayjs";
 import { API } from "../constants";
 
-const Home = () => {
-  useEffect(() => {
-    // const request = async () => {
-    // }
-  }, []);
-
-  console.log(testPages.pages);
-
+const Home = props => {
+  console.log(props);
   return (
     <div className="container">
       <Head>
-        <title>Create Next App</title>
+        <title>長くもなく短くもない内容を収容する場所</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
-        {testPages.pages.map(page => {
+        {props.pages.map(page => {
           return (
             <div key={page.id}>
-              <Link
-                href="/posts/[pid]"
-                as={`/posts/${encodeURIComponent(page.title)}`}
-              >
+              <Link href={`/posts/${encodeURIComponent(page.title)}`}>
                 <a>
+                  <span>{dayjs.unix(page.created).format("YYYY/MM/DD")}</span>
                   <h2>{page.title}</h2>
                 </a>
               </Link>
@@ -36,23 +28,16 @@ const Home = () => {
           );
         })}
       </main>
-
-      <style jsx global>{`
-        html,
-        body {
-          padding: 0;
-          margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
-        }
-
-        * {
-          box-sizing: border-box;
-        }
-      `}</style>
     </div>
   );
+};
+
+Home.getInitialProps = async ctx => {
+  const res = await fetch(API.SB_PAGES, {
+    mode: "cors"
+  });
+
+  return res.json();
 };
 
 export default Home;
