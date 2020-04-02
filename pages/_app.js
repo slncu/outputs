@@ -13,6 +13,7 @@ export default function MyApp({ Component, pageProps }) {
           rel="stylesheet"
           href="https://fonts.googleapis.com/icon?family=Material+Icons"
         />
+        <meta property="og:image" content={process.env.MAIN_IMAGE_URL} />
         <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
