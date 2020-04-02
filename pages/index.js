@@ -3,10 +3,11 @@ import Head from "next/head";
 import Link from "next/link";
 import fetch from "isomorphic-unfetch";
 import dayjs from "dayjs";
+
+import { Container, List, ListItem } from "@material-ui/core";
 import { API } from "../constants";
 
 const Home = props => {
-  console.log(props);
   return (
     <div className="container">
       <Head>
@@ -14,20 +15,22 @@ const Home = props => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        {props.pages.map(page => {
-          return (
-            <div key={page.id}>
-              <Link href={`/posts/${encodeURIComponent(page.title)}`}>
-                <a>
-                  <span>{dayjs.unix(page.created).format("YYYY/MM/DD")}</span>
-                  <h2>{page.title}</h2>
-                </a>
-              </Link>
-            </div>
-          );
-        })}
-      </main>
+      <Container maxWidth="sm">
+        <List>
+          {props.pages.map(page => {
+            return (
+              <ListItem key={page.id}>
+                <Link href={`/posts/${encodeURIComponent(page.title)}`}>
+                  <a>
+                    <span>{dayjs.unix(page.created).format("YYYY/MM/DD")}</span>
+                    <span>{page.title}</span>
+                  </a>
+                </Link>
+              </ListItem>
+            );
+          })}
+        </List>
+      </Container>
     </div>
   );
 };
