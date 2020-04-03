@@ -1,0 +1,5 @@
+{
+  "env": {
+    "MAIN_IMAGE_URL": "@main-image-url"
+  }
+}
