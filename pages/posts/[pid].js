@@ -76,7 +76,7 @@ const Contents = styled.section`
   .h2 {
     padding: 12px 0;
     margin: 1em 0;
-    border-bottom: 1px solid #32cd32;
+    border-bottom: 1px solid #${process.env.THEME_COLOR || "2f4f4f"};
   }
 
   .indent {
@@ -89,7 +89,7 @@ const Contents = styled.section`
       content: "●";
       position: absolute;
       display: inline-block;
-      color: #32cd32;
+      color: #${process.env.THEME_COLOR || "2f4f4f"};
       margin-right: 4px;
       font-size: 10px;
       line-height: 16px;
@@ -103,8 +103,8 @@ const Contents = styled.section`
     display: inline-block;
     padding: 4px;
     border-radius: 2px;
-    color: #3cb371;
-    background: #f5fffa;
+    color: #efefef;
+    background: #808080;
   }
 
   img {
