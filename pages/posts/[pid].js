@@ -11,9 +11,11 @@ import { parse, indent } from "../../helpers/scrapbox";
 import { API } from "../../constants";
 
 const Post = props => {
+  console.log(props);
   return (
     <Container maxWidth="sm">
       <Head>
+        <meta property="og:title" content={props.title} />
         <title>
           {`${props.title} | ${process.env.BLOG_TITLE}` ||
             `${props.projectName} blog`}
