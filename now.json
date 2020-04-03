@@ -1,5 +1,7 @@
 {
-  "env": {
-    "MAIN_IMAGE_URL": "@main-image-url"
+  "build": {
+    "env": {
+      "MAIN_IMAGE_URL": "@main_image_url"
+    }
   }
 }
