@@ -3,7 +3,8 @@
     "env": {
       "MAIN_IMAGE_URL": "@main_image_url",
       "SCRAPBOX_USER_NAME": "@scrapbox_user_name",
-      "THEME_COLOR": "@theme_color"
+      "THEME_COLOR": "@theme_color",
+      "BLOG_TITLE": "@blog_title"
     }
   }
 }

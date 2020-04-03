@@ -1,9 +1,11 @@
 import React from "react";
+import Head from "next/head";
 import styled from "styled-components";
 import fetch from "isomorphic-unfetch";
 import dayjs from "dayjs";
 import { Container } from "@material-ui/core";
 import AccessTimeIcon from "@material-ui/icons/AccessTime";
+import HomeIcon from "@material-ui/icons/Home";
 
 import { parse, indent } from "../../helpers/scrapbox";
 import { API } from "../../constants";
@@ -11,6 +13,12 @@ import { API } from "../../constants";
 const Post = props => {
   return (
     <Container maxWidth="sm">
+      <Head>
+        <title>
+          {`${props.title} | ${process.env.BLOG_TITLE}` ||
+            `${props.projectName} blog`}
+        </title>
+      </Head>
       <Header>
         <Icon src={props.user.photo} />
         <H1>{props.title}</H1>
@@ -28,6 +36,11 @@ const Post = props => {
           />
         ))}
       </Contents>
+      <BackToHome>
+        <a href="/">
+          <HomeIcon />
+        </a>
+      </BackToHome>
     </Container>
   );
 };
@@ -109,6 +122,24 @@ const Contents = styled.section`
 
   img {
     width: 100%;
+  }
+`;
+
+const BackToHome = styled.div`
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  svg {
+    color: #778899;
+    &:visited {
+      color: #778899;
+    }
   }
 `;
 
