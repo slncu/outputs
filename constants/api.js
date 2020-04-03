@@ -1,6 +1,6 @@
-const SCRAP_BOX = "https://scrapbox.io/api";
-const SCRAP_BOX_USER = "slncu";
+const SCRAPBOX_ENDPOINT = "https://scrapbox.io/api";
+const SCRAPBOX_USER_NAME = process.env.SCRAPBOX_USER_NAME;
 
 export default {
-  SB_PAGES: `${SCRAP_BOX}/pages/${SCRAP_BOX_USER}`
+  SB_PAGES: `${SCRAPBOX_ENDPOINT}/pages/${SCRAPBOX_USER_NAME}`
 };
