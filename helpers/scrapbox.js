@@ -35,16 +35,31 @@ export const parse = text => {
 
   // parse: url format
   if (/(https?:\/\/[ぁ-んァ-ヶA-z0-9一-龠-\.\/\?#=]+[\.\w]+)/g.test(parsed)) {
-    // parse: embeded link
-    const matches = parsed.match(
-      /(https?:\/\/[ぁ-んァ-ヶA-z0-9一-龠-\.\/\?#=]+[\.\w]+)/g
-    );
-    const urls = matches.map(url => {
-      return `<a href="${url}" target="_blank">${url}</a>`;
-    });
-    const formatted = matches.map((match, i) => parsed.replace(match, urls[i]));
+    if (/\[.*\.(jpeg?|png|gif|svg)\]/g.test(parsed)) {
+      const matches = parsed.match(/\[.*\.(jpeg?|png|gif|svg)\]/g);
+      const srcs = matches.map(src => {
+        const replaced = src.replace("[", "").replace("]", "");
+        return `<a href="${replaced}" target="_blank"><img src="${replaced}" /></a>`;
+      });
+      const formatted = matches.map((match, i) =>
+        parsed.replace(match, srcs[i])
+      );
 
-    parsed = formatted[0];
+      parsed = formatted[0];
+    } else {
+      // parse: embeded link
+      const matches = parsed.match(
+        /(https?:\/\/[ぁ-んァ-ヶA-z0-9一-龠-\.\/\?#=]+[\.\w]+)/g
+      );
+      const urls = matches.map(url => {
+        return `<a href="${url}" target="_blank">${url}</a>`;
+      });
+      const formatted = matches.map((match, i) =>
+        parsed.replace(match, urls[i])
+      );
+
+      parsed = formatted[0];
+    }
   }
 
   // parse: strike

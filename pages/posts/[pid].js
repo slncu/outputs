@@ -106,6 +106,10 @@ const Contents = styled.section`
     color: #3cb371;
     background: #f5fffa;
   }
+
+  img {
+    width: 100%;
+  }
 `;
 
 export default Post;
